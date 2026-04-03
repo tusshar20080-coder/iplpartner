@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="neutral">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RCB vs CSK • Official Fan Wall</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Witness the ultimate fan face-off between RCB and CSK. Support your side and watch the live leaderboard update in real-time." />
+  <meta property="og:title" content="RCB vs CSK Fan Wall" />
+  <meta property="og:description" content="Support Virat or Dhoni and watch the theme shift as the lead changes." />
+  <meta property="og:type" content="website" />
+  
+  <style>
+    :root {
+      /* Base & Common */
+      --transition-base: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+      --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+      --font-title: 'Outfit', sans-serif;
+
+      /* Neutral Theme (Default) */
+      --bg-color: #0c0c0e;
+      --bg-gradient: radial-gradient(circle at 50% 0%, #1a1a23 0%, #0c0c0e 70%);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: 1px solid rgba(255, 255, 255, 0.1);
+      --text-color: #ffffff;
+      --text-muted: #a1a1aa;
+      --accent: #ef4444; /* Generic Red */
+      --accent-secondary: #facc15; /* Yellow highlight */
+      --progress-bg: #1f1f23;
+    }
+
+    /* Virat / RCB Theme */
+    [data-theme="virat"] {
+      --bg-color: #1a0505;
+      --bg-gradient: radial-gradient(circle at 10% 0%, #3b0a0a 0%, #1a0505 80%);
+      --card-bg: rgba(228, 27, 39, 0.08); /* RCB Red tint */
+      --card-border: 1px solid rgba(228, 27, 39, 0.2);
+      --accent: #e41b27;
+      --accent-secondary: #fecd41; /* Gold highlight */
+      --progress-active: #e41b27;
+    }
+
+    /* Dhoni / CSK Theme */
+    [data-theme="dhoni"] {
+      --bg-color: #0f1005;
+      --bg-gradient: radial-gradient(circle at 90% 0%, #30310a 0%, #0f1005 80%);
+      --card-bg: rgba(244, 211, 44, 0.08); /* CSK Yellow tint */
+      --card-border: 1px solid rgba(244, 211, 44, 0.2);
+      --accent: #f4d32c;
+      --accent-secondary: #1a4aa5; /* Blue highlight */
+      --progress-active: #f4d32c;
+    }
+
+    /* Global Resets */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-color);
+      background-image: var(--bg-gradient);
+      color: var(--text-color);
+      font-family: var(--font-body);
+      transition: background var(--transition-base), color var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      overflow-x: hidden;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+
+    .match-chip {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 999px;
+      background: var(--card-bg);
+      border: var(--card-border);
+      color: var(--accent-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Sides Grid */
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .support-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .side-card {
+      position: relative;
+      background: var(--card-bg);
+      border: var(--card-border);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s ease, border-color var(--transition-base), background var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .side-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .side-label {
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    .qr-container {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 200px;
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .qr-container p {
+      color: #0c0c0e;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .suggest-min {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .suggest-min b {
+      color: var(--accent);
+    }
+
+    /* Leaderboard Component */
+    .leaderboard-section {
+      width: 100%;
+      max-width: 900px;
+      background: var(--card-bg);
+      border: var(--card-border);
+      border-radius: 2.5rem;
+      padding: 2.5rem;
+      backdrop-filter: blur(20px);
+    }
+
+    .lb-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .lb-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .leader-badge {
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      background: var(--bg-color);
+      border: 1px solid var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .score-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .score-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .score-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .score-value {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .score-percent {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+      color: var(--accent-secondary);
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      height: 1.5rem;
+      background: var(--progress-bg);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      margin-top: 2rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fill-v { background: linear-gradient(90deg, #e41b27, #fecd41); }
+    .fill-d { background: linear-gradient(90deg, #f4d32c, #1a4aa5); }
+
+    /* Footer Meta */
+    footer {
+      margin-top: 5rem;
+      text-align: center;
+      max-width: 600px;
+      opacity: 0.6;
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    /* Loading state */
+    .loading-pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="match-chip">5 April 2026 • 7:30 PM IST</div>
+    <h1>The Emotional Battle</h1>
+    <p>Every transaction is a heartbeat for your favorite side. Watch the wall shift as the legend updates live.</p>
+  </header>
+
+  <main class="support-grid">
+    <!-- Virat Side -->
+    <section class="side-card" id="card-virat">
+      <div class="side-label">Virat / RCB Power</div>
+      <h2>For Virat Kohli</h2>
+      <div class="qr-container">
+        <!-- Replace WITH REAL QR -->
+        <p>SCAN TO SUPPORT VIRAT<br/>(ON POSTER)</p>
+      </div>
+      <p class="suggest-min">Suggested: <b>₹18</b></p>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Virat QR from the official posters to increment this side.</p>
+    </section>
+
+    <!-- Dhoni Side -->
+    <section class="side-card" id="card-dhoni">
+      <div class="side-label">Dhoni / CSK Legacy</div>
+      <h2>For MS Dhoni</h2>
+      <div class="qr-container">
+        <!-- Replace WITH REAL QR -->
+        <p>SCAN TO SUPPORT DHONI<br/>(ON POSTER)</p>
+      </div>
+      <p class="suggest-min">Suggested: <b>₹7</b></p>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Dhoni QR from the official posters to increment this side.</p>
+    </section>
+  </main>
+
+  <section class="leaderboard-section">
+    <div class="lb-header">
+      <div class="lb-title">Live Countdown Feed</div>
+      <div class="leader-badge" id="badge-status">CALCULATING DOMINANCE...</div>
+    </div>
+
+    <div class="score-container">
+      <div class="score-item">
+        <div class="score-name">RCB / VIRAT</div>
+        <div class="score-value" id="count-v">0</div>
+        <div class="score-percent" id="pct-v">0%</div>
+      </div>
+      <div class="score-item" style="text-align: right;">
+        <div class="score-name">CSK / DHONI</div>
+        <div class="score-value" id="count-d">0</div>
+        <div class="score-percent" id="pct-d">0%</div>
+      </div>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill fill-v" id="track-v" style="width: 50%;"></div>
+      <div class="progress-fill fill-d" id="track-d" style="width: 50%;"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Unofficial small-scale fan-made emotional fun project only. Not affiliated with RCB, CSK, BCCI, IPL, Virat Kohli, MS Dhoni or any player/team. Donations are voluntary.</p>
+  </footer>
+
+  <script>
+    // Configuration - UPDATE THIS TO YOUR RENDER URL AFTER DEPLOYMENT
+    const API_URL = 'http://localhost:3000/api/leaderboard'; 
+
+    const countV = document.getElementById('count-v');
+    const countD = document.getElementById('count-d');
+    const pctV = document.getElementById('pct-v');
+    const pctD = document.getElementById('pct-d');
+    const trackV = document.getElementById('track-v');
+    const trackD = document.getElementById('track-d');
+    const statusBadge = document.getElementById('badge-status');
+    const html = document.documentElement;
+
+    async function syncLeaderboard() {
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('API Sync Failed');
+        
+        const data = await response.json();
+        
+        // Update Raw Counts
+        countV.innerText = data.viratCount.toLocaleString();
+        countD.innerText = data.dhoniCount.toLocaleString();
+        
+        // Update Percentages and Tracks
+        pctV.innerText = `${data.viratPercentage}%`;
+        pctD.innerText = `${data.dhoniPercentage}%`;
+        
+        // Ensure visual minimum for progress bar visibility
+        const vPct = data.viratPercentage === 0 && data.dhoniPercentage === 0 ? 50 : data.viratPercentage;
+        const dPct = data.viratPercentage === 0 && data.dhoniPercentage === 0 ? 50 : data.dhoniPercentage;
+        
+        trackV.style.width = `${vPct}%`;
+        trackD.style.width = `${dPct}%`;
+
+        // Apply Theme Shift
+        if (data.leader === 'virat') {
+          html.setAttribute('data-theme', 'virat');
+          statusBadge.innerText = 'KING KOHLI LEADING';
+        } else if (data.leader === 'dhoni') {
+          html.setAttribute('data-theme', 'dhoni');
+          statusBadge.innerText = 'THALA DOMINANCE';
+        } else {
+          html.setAttribute('data-theme', 'neutral');
+          statusBadge.innerText = 'BATTLE BALANCED';
+        }
+      } catch (error) {
+        console.warn('Syncing issue:', error);
+        statusBadge.innerText = 'LIVE SYNC ERROR';
+      }
+    }
+
+    // Initial Fetch & Polling
+    syncLeaderboard();
+    setInterval(syncLeaderboard, 3000);
+  </script>
+</body>
+</html>
