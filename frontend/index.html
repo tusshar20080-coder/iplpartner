@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="neutral">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RCB vs CSK • Official Fan Wall</title>
-  
+
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Witness the ultimate fan face-off between RCB and CSK. Support your side and watch the live leaderboard update in real-time." />
+  <meta name="description"
+    content="Witness the ultimate fan face-off between RCB and CSK. Support your side and watch the live leaderboard update in real-time." />
   <meta property="og:title" content="RCB vs CSK Fan Wall" />
   <meta property="og:description" content="Support Virat or Dhoni and watch the theme shift as the lead changes." />
   <meta property="og:type" content="website" />
-  
+
   <style>
     :root {
       /* Base & Common */
@@ -25,8 +27,10 @@
       --card-border: 1px solid rgba(255, 255, 255, 0.1);
       --text-color: #ffffff;
       --text-muted: #a1a1aa;
-      --accent: #ef4444; /* Generic Red */
-      --accent-secondary: #facc15; /* Yellow highlight */
+      --accent: #ef4444;
+      /* Generic Red */
+      --accent-secondary: #facc15;
+      /* Yellow highlight */
       --progress-bg: #1f1f23;
     }
 
@@ -34,10 +38,12 @@
     [data-theme="virat"] {
       --bg-color: #1a0505;
       --bg-gradient: radial-gradient(circle at 10% 0%, #3b0a0a 0%, #1a0505 80%);
-      --card-bg: rgba(228, 27, 39, 0.08); /* RCB Red tint */
+      --card-bg: rgba(228, 27, 39, 0.08);
+      /* RCB Red tint */
       --card-border: 1px solid rgba(228, 27, 39, 0.2);
       --accent: #e41b27;
-      --accent-secondary: #fecd41; /* Gold highlight */
+      --accent-secondary: #fecd41;
+      /* Gold highlight */
       --progress-active: #e41b27;
     }
 
@@ -45,10 +51,12 @@
     [data-theme="dhoni"] {
       --bg-color: #0f1005;
       --bg-gradient: radial-gradient(circle at 90% 0%, #30310a 0%, #0f1005 80%);
-      --card-bg: rgba(244, 211, 44, 0.08); /* CSK Yellow tint */
+      --card-bg: rgba(244, 211, 44, 0.08);
+      /* CSK Yellow tint */
       --card-border: 1px solid rgba(244, 211, 44, 0.2);
       --accent: #f4d32c;
-      --accent-secondary: #1a4aa5; /* Blue highlight */
+      --accent-secondary: #1a4aa5;
+      /* Blue highlight */
       --progress-active: #f4d32c;
     }
 
@@ -269,8 +277,13 @@
       transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .fill-v { background: linear-gradient(90deg, #e41b27, #fecd41); }
-    .fill-d { background: linear-gradient(90deg, #f4d32c, #1a4aa5); }
+    .fill-v {
+      background: linear-gradient(90deg, #e41b27, #fecd41);
+    }
+
+    .fill-d {
+      background: linear-gradient(90deg, #f4d32c, #1a4aa5);
+    }
 
     /* Footer Meta */
     footer {
@@ -288,12 +301,21 @@
     }
 
     @keyframes pulse {
-      0% { opacity: 0.6; }
-      50% { opacity: 1; }
-      100% { opacity: 0.6; }
+      0% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.6;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -309,10 +331,11 @@
       <h2>For Virat Kohli</h2>
       <div class="qr-container">
         <!-- Replace WITH REAL QR -->
-        <p>SCAN TO SUPPORT VIRAT<br/>(ON POSTER)</p>
+        <p>SCAN TO SUPPORT VIRAT<br />(ON POSTER)</p>
       </div>
       <p class="suggest-min">Suggested: <b>₹18</b></p>
-      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Virat QR from the official posters to increment this side.</p>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Virat QR from the
+        official posters to increment this side.</p>
     </section>
 
     <!-- Dhoni Side -->
@@ -321,10 +344,11 @@
       <h2>For MS Dhoni</h2>
       <div class="qr-container">
         <!-- Replace WITH REAL QR -->
-        <p>SCAN TO SUPPORT DHONI<br/>(ON POSTER)</p>
+        <p>SCAN TO SUPPORT DHONI<br />(ON POSTER)</p>
       </div>
       <p class="suggest-min">Suggested: <b>₹7</b></p>
-      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Dhoni QR from the official posters to increment this side.</p>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Dhoni QR from the
+        official posters to increment this side.</p>
     </section>
   </main>
 
@@ -354,12 +378,13 @@
   </section>
 
   <footer>
-    <p>Unofficial small-scale fan-made emotional fun project only. Not affiliated with RCB, CSK, BCCI, IPL, Virat Kohli, MS Dhoni or any player/team. Donations are voluntary.</p>
+    <p>Unofficial small-scale fan-made emotional fun project only. Not affiliated with RCB, CSK, BCCI, IPL, Virat Kohli,
+      MS Dhoni or any player/team. Donations are voluntary.</p>
   </footer>
 
   <script>
     // Configuration - UPDATE THIS TO YOUR RENDER URL AFTER DEPLOYMENT
-    const API_URL = 'http://localhost:3000/api/leaderboard'; 
+    const API_URL = 'https://iplpartner.onrender.com/api/leaderboard';
 
     const countV = document.getElementById('count-v');
     const countD = document.getElementById('count-d');
@@ -374,21 +399,21 @@
       try {
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('API Sync Failed');
-        
+
         const data = await response.json();
-        
+
         // Update Raw Counts
         countV.innerText = data.viratCount.toLocaleString();
         countD.innerText = data.dhoniCount.toLocaleString();
-        
+
         // Update Percentages and Tracks
         pctV.innerText = `${data.viratPercentage}%`;
         pctD.innerText = `${data.dhoniPercentage}%`;
-        
+
         // Ensure visual minimum for progress bar visibility
         const vPct = data.viratPercentage === 0 && data.dhoniPercentage === 0 ? 50 : data.viratPercentage;
         const dPct = data.viratPercentage === 0 && data.dhoniPercentage === 0 ? 50 : data.dhoniPercentage;
-        
+
         trackV.style.width = `${vPct}%`;
         trackD.style.width = `${dPct}%`;
 
@@ -414,4 +439,5 @@
     setInterval(syncLeaderboard, 3000);
   </script>
 </body>
+
 </html>
