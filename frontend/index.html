@@ -166,22 +166,21 @@
 
     .qr-container {
       width: 100%;
-      aspect-ratio: 1;
-      max-width: 200px;
-      background: #ffffff;
+      max-width: 280px;
       border-radius: 1.5rem;
-      padding: 1rem;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 2rem;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .qr-container p {
-      color: #0c0c0e;
-      font-size: 0.75rem;
-      font-weight: 600;
+    .poster-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .suggest-min {
@@ -330,10 +329,9 @@
       <div class="side-label">Virat / RCB Power</div>
       <h2>For Virat Kohli</h2>
       <div class="qr-container">
-        <!-- Replace WITH REAL QR -->
-        <p>SCAN TO SUPPORT VIRAT<br />(ON POSTER)</p>
+        <img src="assets/virat_poster.png" alt="Virat Kohli / RCB Poster" class="poster-img">
       </div>
-      <p class="suggest-min">Suggested: <b>₹18</b></p>
+      <p class="suggest-min">For RCB: <b>₹18</b></p>
       <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Virat QR from the
         official posters to increment this side.</p>
     </section>
@@ -343,10 +341,9 @@
       <div class="side-label">Dhoni / CSK Legacy</div>
       <h2>For MS Dhoni</h2>
       <div class="qr-container">
-        <!-- Replace WITH REAL QR -->
-        <p>SCAN TO SUPPORT DHONI<br />(ON POSTER)</p>
+        <img src="assets/dhoni_poster.png" alt="MS Dhoni / CSK Poster" class="poster-img">
       </div>
-      <p class="suggest-min">Suggested: <b>₹7</b></p>
+      <p class="suggest-min">For CSK: <b>₹7</b></p>
       <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Use the dedicated Dhoni QR from the
         official posters to increment this side.</p>
     </section>
